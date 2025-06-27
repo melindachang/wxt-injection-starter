@@ -8,7 +8,7 @@ export default defineConfig({
     web_accessible_resources: [
       {
         matches: ['*://*.google.com/*'],
-        resources: ['content-scripts/content.css'],
+        resources: ['assets/injection.css'],
       },
     ],
   },
