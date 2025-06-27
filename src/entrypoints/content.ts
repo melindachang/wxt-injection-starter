@@ -1,11 +1,9 @@
-import '../assets/injection.scss'
-
 const inject_style_and_repaint = (): void => {
   const href =
-    browser.runtime.getURL('content-scripts/content.css') + `?t=${Date.now()}`
+    browser.runtime.getURL('assets/injection.css') + `?t=${Date.now()}`
 
-  const existing = document.querySelector('link[data-extension-style]')
-  if (existing) existing.remove()
+  const prev = document.querySelector('link[data-extension-style]')
+  if (prev) prev.remove()
 
   const link = document.createElement('link')
   link.rel = 'stylesheet'
@@ -19,6 +17,7 @@ const inject_style_and_repaint = (): void => {
 export default defineContentScript({
   matches: ['*://*.google.com/*'],
   cssInjectionMode: 'manual',
+  runAt: 'document_start',
   main() {
     if (
       document.head ||

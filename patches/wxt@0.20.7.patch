@@ -1,0 +1,13 @@
+diff --git a/dist/core/builders/vite/index.mjs b/dist/core/builders/vite/index.mjs
+index a86d54e7c3c172d59c793eca2dc5b1500967d2e1..fcbf0dd9eed1e5dcc3b36497fbe1251d72ab624e 100644
+--- a/dist/core/builders/vite/index.mjs
++++ b/dist/core/builders/vite/index.mjs
+@@ -238,7 +238,7 @@ export async function createViteBuilder(wxtConfig, hooks, getWxtDevServer) {
+     async build(group) {
+       let entryConfig;
+       if (Array.isArray(group)) entryConfig = getMultiPageConfig(group);
+-      else if (group.inputPath.endsWith(".css"))
++      else if (group.type === 'content-script-style' || group.type === 'unlisted-style')
+         entryConfig = getCssConfig(group);
+       else entryConfig = getLibModeConfig(group);
+       const buildConfig = vite.mergeConfig(await getBaseConfig(), entryConfig);

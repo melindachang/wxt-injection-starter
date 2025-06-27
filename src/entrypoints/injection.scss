@@ -1,0 +1,5 @@
+@use '../lib/themes/index.scss' as styles;
+
+body {
+  background: styles.$color;
+}

@@ -1,9 +1,20 @@
 {
   "name": "wxt-injection-starter",
+  "version": "0.0.0",
+  "devDependencies": {
+    "@tsconfig/svelte": "^5.0.4",
+    "@wxt-dev/module-svelte": "^2.0.3",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "sass-embedded": "^1.89.2",
+    "svelte": "^5.34.8",
+    "svelte-check": "^4.2.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3",
+    "wxt": "^0.20.7"
+  },
   "description": "WXT starter for programmatic stylesheet injections",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "wxt",
     "dev:firefox": "wxt -b firefox",
@@ -16,16 +27,11 @@
     "lint": "prettier --check .",
     "postinstall": "wxt prepare"
   },
-  "devDependencies": {
-    "@tsconfig/svelte": "^5.0.4",
-    "@wxt-dev/module-svelte": "^2.0.3",
-    "prettier": "^3.6.1",
-    "prettier-plugin-svelte": "^3.4.0",
-    "sass-embedded": "^1.89.2",
-    "svelte": "^5.28.2",
-    "svelte-check": "^4.1.6",
-    "tslib": "^2.8.1",
-    "typescript": "^5.8.3",
-    "wxt": "^0.20.6"
+  "type": "module",
+  "trustedDependencies": [
+    "spawn-sync"
+  ],
+  "patchedDependencies": {
+    "wxt@0.20.7": "patches/wxt@0.20.7.patch"
   }
 }
